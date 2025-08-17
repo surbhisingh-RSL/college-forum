@@ -6,15 +6,17 @@ import { Link } from 'react-router-dom';
 
 const NavbarComponent = () => {
   return (
-    <nav className="NavbarComponent">
+    <nav class="navbar bg-body-tertiary">
+      <div class="container-fluid">
       <div className="NavbarComponent__logo">
        <Link to="/" style={{ textDecoration: 'none', color: 'inherit' }}>
         <h2>Logo</h2> 
        </Link>
       </div>
-      <div className="NavbarComponent__right">
-        <input type="text" className="NavbarComponent__search" placeholder="Search..." />
-        <FaUserCircle className="NavbarComponent__profile-icon" />
+        <form class="d-flex" role="search">
+          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
+          <button class="btn btn-outline-success" type="submit">Search</button>
+        </form>
       </div>
     </nav>
   );

@@ -1,8 +1,8 @@
-import logo from './logo.svg';
-import NavbarComponent from './Components/NavbarComponent';
-import './App.css';
-import { Routes, Route } from 'react-router-dom';
-import Login from './Components/Login.jsx';
+import "bootstrap/dist/css/bootstrap.min.css";   // 👈 Add this line
+import "./App.css";
+import { Routes, Route } from "react-router-dom";
+import NavbarComponent from "./Components/NavbarComponent";
+import Login from "./Components/Login.jsx";
 
 function App() {
   return (
