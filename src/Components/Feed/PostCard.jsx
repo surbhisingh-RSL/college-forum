@@ -23,7 +23,7 @@ const PostCard = ({ user, time, content, image, likes, comments }) => {
         </Row>
 
         {/* PostCard Content */}
-        <Card.Text>{content}</Card.Text>
+        <Card.Text className="align-items-center">{content}</Card.Text>
         {image && (
           <Image
             src={image}
