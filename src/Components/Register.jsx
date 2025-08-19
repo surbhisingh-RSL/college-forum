@@ -1,23 +1,23 @@
 import React, { useState } from "react";
 import { Card, Form, Button, Row, Col } from "react-bootstrap";
 
-const Login = ({ onLogin }) => {
+const Register = ({ onRegister }) => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
 
-  const handleLogin = () => {
+  const handleRegister = () => {
     if (username === password) {
-      onLogin(); 
+      onRegister(); 
     } else {
-      alert('Invalid login. Username must equal password for now.');
+      alert('Invalid Register. Username must equal password for now.');
     }
   };
 
   return (
-    <div className="login-container">
+    <div className="Register-container">
       <Card className="p-5 mb-3 shadow-sm">
         <Row className="text-center">
-          <h2>Login</h2>
+          <h2>Register</h2>
         </Row>
         <Row className="align-items-center mt-3">
           <Col xs="auto">
@@ -47,8 +47,8 @@ const Login = ({ onLogin }) => {
         </Row>
         <Row className="mt-4 text-center">
           <Col>
-            <Button variant="light" className="w-100 text-muted" onClick={handleLogin}>
-              Login
+            <Button variant="light" className="w-100 text-muted" onClick={handleRegister}>
+              Register
             </Button>
           </Col>
         </Row>
@@ -57,4 +57,4 @@ const Login = ({ onLogin }) => {
   );
 };
 
-export default Login;
+export default Register;

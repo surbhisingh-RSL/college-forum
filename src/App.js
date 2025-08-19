@@ -1,19 +1,43 @@
-import "bootstrap/dist/css/bootstrap.min.css";   // 👈 Add this line
-import "./App.css";
-import { Routes, Route } from "react-router-dom";
+import React, { useState } from "react";
+import { Routes, Route, Navigate } from "react-router-dom";
+import Feed from "./Components/Feed/Feed";
+import Login from "./Components/Login";
+import Layout from "./Components/Layout";
 import NavbarComponent from "./Components/NavbarComponent";
-import Login from "./Components/Login.jsx";
+import Profile from "./Components/Profile";
 
-function App() {
+const App = () => {
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
   return (
-    <div className="App">
+    <>
       <NavbarComponent />
       <Routes>
-        <Route path="/login" element={<Login />} />
-        {/* Add other routes here */}
+        <Route
+          path="/login"
+          element={
+            isLoggedIn ? <Navigate to="/feed" replace /> : <Login onLogin={() => setIsLoggedIn(true)} />
+          }
+        />
+        <Route
+          path="/feed"
+          element={
+            isLoggedIn ? <Layout><Feed /></Layout> : <Navigate to="/login" replace />
+          }
+        />
+        <Route
+          path="/"
+          element={<Navigate to={isLoggedIn ? "/feed" : "/login"} replace />}
+        />
+        <Route
+          path="/profile"
+          element={
+            isLoggedIn ? <Layout><Profile /></Layout> : <Navigate to="/login" replace />
+          }
+        />
       </Routes>
-    </div>
+    </>
   );
-}
+};
 
 export default App;
