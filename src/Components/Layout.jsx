@@ -1,22 +1,12 @@
 import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
-import Feed from "./Feed/Feed";
 
-import Login from './Login';
-
-const Layout = () => {
-  let page;
-  let isLoggedIn = false
-  if (isLoggedIn) {
-    page = <Feed />
-  } else {
-    page = <Login />
-  }
+const Layout = ({ children }) => {
   return (
     <Container fluid className="mt-4">
       <Row className="justify-content-center">
         <Col xs={12} md={10} lg={8} xl={7} xxl={6}>
-          {page}
+          {children}
         </Col>
       </Row>
     </Container>
