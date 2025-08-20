@@ -4,6 +4,7 @@ import Feed from "./Components/Feed/Feed";
 import Login from "./Components/Login";
 import Layout from "./Components/Layout";
 import NavbarComponent from "./Components/NavbarComponent";
+import Register from "./Components/Register"
 import Profile from "./Components/Profile";
 
 const App = () => {
@@ -35,6 +36,7 @@ const App = () => {
             isLoggedIn ? <Layout><Profile onLogout={() => setIsLoggedIn(false)}/></Layout> : <Navigate to="/login" replace />
           }
         />
+        <Route path="/register" element= {<Register onRegister={() => setIsLoggedIn(true)}/>} />
       </Routes>
     </>
   );
