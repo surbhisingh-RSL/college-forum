@@ -1,6 +1,7 @@
 const { createUser } = require('../models/userModel');
 
 const registerUser = async (req, res) => {
+  console.log("📩 Register API hit:", req.body);
   const { username, password, phoneNumber, email, userType } = req.body;
 
   if (!username || !password || !phoneNumber || !email) {

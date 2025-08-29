@@ -1,3 +1,4 @@
+// server.js
 const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
@@ -8,12 +9,21 @@ const userRoutes = require('./routes/userRoutes');
 dotenv.config();
 
 const app = express();
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 5001;
 
 app.use(cors());
 app.use(bodyParser.json());
+app.use((req, res, next) => {
+  console.log("➡️ Backend request:", req.method, req.url);
+  next();
+});
 
-// API Routes
+app.use((req, res, next) => {
+  console.log(`➡️ ${req.method} ${req.url}`);
+  next();
+});
+
+// ✅ API routes
 app.use('/api/users', userRoutes);
 
 // Run migrations before starting

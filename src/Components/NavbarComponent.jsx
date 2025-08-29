@@ -1,5 +1,5 @@
 import React from 'react';
-import { FaUserCircle } from 'react-icons/fa'; 
+import { FaUserCircle } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 
 const NavbarComponent = () => {
@@ -8,7 +8,12 @@ const NavbarComponent = () => {
       <div className="container-fluid">
         <div className="NavbarComponent__logo">
           <Link to="/" style={{ textDecoration: 'none', color: 'inherit' }}>
-            <h2>Logo</h2>
+            <img
+              src="/college-forum-logo.png"
+              alt="College Forum Logo"
+              style={{ height: "40px" }}
+            />
+
           </Link>
         </div>
         <form className="d-flex" role="search">
