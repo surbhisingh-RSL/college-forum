@@ -1,8 +1,8 @@
 CREATE TABLE IF NOT EXISTS Posts (
   id INT AUTO_INCREMENT PRIMARY KEY,
   user_id INT NOT NULL,
-  content TEXT NOT NULL,
-  image_url VARCHAR(255),
+  content VARCHAR(2000) DEFAULT '',  -- now you can set default
+  image_url VARCHAR(255) DEFAULT '',
   created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
   FOREIGN KEY (user_id) REFERENCES Users(id) ON DELETE CASCADE
 );
